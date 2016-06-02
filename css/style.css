@@ -180,6 +180,9 @@ span {
   .biopic {
     width: 175px;
   }
+  .projectpic {
+    width: 125px;
+  }
 }
 
 @media only screen and (max-width: 750px) {
@@ -188,6 +191,9 @@ span {
   }
   .biopic {
     width: 150px;
+  }
+  .projectpic {
+    width: 100px;
   }
   .welcome-message {
     display: none;
@@ -210,5 +216,8 @@ span {
   #skills-h3,
   .biopic {
     display: block;
+  }
+  .projectpic {
+    width: 150px;
   }
 }
