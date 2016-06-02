@@ -9,42 +9,48 @@ This is empty on purpose! Your code to build the resume will go here.
     email: 'wile.e.coyote@gmail.com',
     github: 'http://github.com/wileecoyote',
     twitter: '@wileecoyote',
-    location: '1 Desert St, South West, USA',
+    location: 'Sedona, AZ',
     blog: 'http://wordpress.og/wile-e-coyote'
   },
   welcomeMessage: "If he ever catches you, you're through",
-  skill: ['carpentor', 'explosive expert', 'catapult designer'],
-  biopic: 'https://en.wikipedia.org/wiki/Wile_E._Coyote_and_The_Road_Runner#/media/File:Wile_E_Coyote.png',
+  skills: ['carpenter', 'explosive expert', 'catapult designer'],
+  biopic: 'https://upload.wikimedia.org/wikipedia/en/5/56/Wile_E_Coyote.png',
   display: function () {
-    $('#header').prepend(HTMLheaderRole.replace("%data%",bio.role));
-    $('#header').prepend(HTMLheaderName.replace("%data%",bio.name));
-    $('#topContacts').append(HTMLlocation.replace("%data%",bio.contacts.location));
-    $('#topContacts').append(HTMLmobile.replace("%data%",bio.contacts.mobile));
-    $('#topContacts').append(HTMLemail.replace("%data%",bio.contacts.email));
-    $('#topContacts').append(HTMLtwitter.replace("%data%",bio.contacts.twitter));
-    $('#topContacts').append(HTMLgithub.replace("%data%",bio.contacts.github));
-    $('#topContacts').append(HTMLblog.replace("%data%",bio.contacts.blog));
+    $('#header').prepend(HTMLheaderRole.replace('%data%',bio.role));
+    $('#header').prepend(HTMLheaderName.replace('%data%',bio.name));
+    $('#topContacts').append(HTMLlocation.replace('%data%',bio.contacts.location));
+    $('#topContacts').append(HTMLmobile.replace('%data%',bio.contacts.mobile));
+    $('#topContacts').append(HTMLemail.replace('%data%',bio.contacts.email));
+    $('#topContacts').append(HTMLtwitter.replace('%data%',bio.contacts.twitter));
+    $('#topContacts').append(HTMLgithub.replace('%data%',bio.contacts.github));
+    $('#topContacts').append(HTMLblog.replace('%data%',bio.contacts.blog));
+    $('#header').append(HTMLbioPic.replace('%data%',bio.biopic));
+    $('#header').append(HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage));
+    $('#header').append(HTMLskillsStart);
+    bio.skills.forEach(function (skill) {
+      $('#skills-h3').append(HTMLskills.replace('%data%',skill));
+    });
   }
-}
+};
 bio.display();
 
 var education = {
   schools: [
     {
-      name: 'South Western',
-      location: '2 Desert St, South West, USA',
+      name: 'University of New Mexico',
+      location: 'Albuquerque, NM 87131',
       degree: 'PhD Of Science',
       majors: ['Physics', 'Propulsion'],
       dates: '1948-1942',
-      url: 'http://swu.com'
+      url: 'https://www.unm.edu/'
     },
     {
-      name: 'South Western',
-      location: '3 Desert St, South West, USA',
+      name: 'University of Arizona',
+      location: 'Tucson, AZ 85721',
       degree: 'Bachelors Of Science',
-      majors: ['Anotomy', 'Birds'],
+      majors: ['Anatomy', 'Birds'],
       dates: '1938-1942',
-      url: 'http://swu.com'
+      url: 'http://www.arizona.edu/'
     }
   ],
   onlineCourses: [
@@ -64,26 +70,26 @@ var education = {
   display: function () {
     var eLast;
     education.schools.forEach(function (school) {
-      $("#education").append(HTMLschoolStart);
-      eLast = $(".education-entry:last");
-      eLast.append(HTMLschoolName.replace("%data%",school.name));
-      eLast.append(HTMLschoolDegree.replace("%data%",school.degree));
-      eLast.append(HTMLschoolDates.replace("%data%",school.dates));
-      eLast.append(HTMLschoolLocation.replace("%data%",school.location));
+      $('#education').append(HTMLschoolStart);
+      eLast = $('.education-entry:last');
+      eLast.append(HTMLschoolName.replace('%data%',school.name));
+      eLast.append(HTMLschoolDegree.replace('%data%',school.degree));
+      eLast.append(HTMLschoolDates.replace('%data%',school.dates));
+      eLast.append(HTMLschoolLocation.replace('%data%',school.location));
       school.majors.forEach(function (major) {
-        eLast.append(HTMLschoolMajor.replace("%data%",major));
-      })
-    })
-    eLast = $(".education-entry:last");
+        eLast.append(HTMLschoolMajor.replace('%data%',major));
+      });
+    });
+    eLast = $('.education-entry:last');
     eLast.append(HTMLonlineClasses);
     education.onlineCourses.forEach(function (onlineCourse) {
-      eLast.append(HTMLonlineTitle.replace("%data%",onlineCourse.title));
-      eLast.append(HTMLonlineSchool.replace("%data%",onlineCourse.school));
-      eLast.append(HTMLonlineDates.replace("%data%",onlineCourse.dates));
-      eLast.append(HTMLonlineURL.replace("%data%",onlineCourse.url));
-    })
+      eLast.append(HTMLonlineTitle.replace('%data%',onlineCourse.title));
+      eLast.append(HTMLonlineSchool.replace('%data%',onlineCourse.school));
+      eLast.append(HTMLonlineDates.replace('%data%',onlineCourse.dates));
+      eLast.append(HTMLonlineURL.replace('%data%',onlineCourse.url));
+    });
   }
-}
+};
 education.display();
 
 var work = {
@@ -91,30 +97,30 @@ var work = {
     {
       employer: 'ACME',
       title: 'Quality Control',
-      location: '3 Desert St, South West, USA',
+      location: 'Las Vegas, NV 89113',
       dates: 'in progress',
       description: 'Inspect products for correct operation.'
     },
     {
       employer: 'Zoo',
       title: 'Bird Inspector',
-      location: '4 Desert St, South West, USA',
+      location: 'Phoenix, AZ',
       dates: '1950-1970',
       description: 'Feed and take care of birds.'
     }
   ],
   display: function () {
     work.jobs.forEach(function (work) {
-      $("#workExperience").append(HTMLworkStart);
-      wLast = $(".work-entry:last");
-      wLast.append(HTMLworkEmployer.replace("%data%",work.employer));
-      wLast.append(HTMLworkTitle.replace("%data%",work.title));
-      wLast.append(HTMLworkDates.replace("%data%",work.dates));
-      wLast.append(HTMLworkLocation.replace("%data%",work.location));
-      wLast.append(HTMLworkDescription.replace("%data%",work.description));
-    })
+      $('#workExperience').append(HTMLworkStart);
+      var wLast = $('.work-entry:last');
+      wLast.append(HTMLworkEmployer.replace('%data%',work.employer));
+      wLast.append(HTMLworkTitle.replace('%data%',work.title));
+      wLast.append(HTMLworkDates.replace('%data%',work.dates));
+      wLast.append(HTMLworkLocation.replace('%data%',work.location));
+      wLast.append(HTMLworkDescription.replace('%data%',work.description));
+    });
   }
-}
+};
 work.display();
 
 var projects = {
@@ -140,16 +146,18 @@ var projects = {
   ],
   display: function () {
     projects.projects.forEach(function (project) {
-      $("#projects").append(HTMLprojectStart);
-      wLast = $(".project-entry:last");
-      wLast.append(HTMLprojectTitle.replace("%data%",project.title));
-      wLast.append(HTMLprojectDates.replace("%data%",project.dates));
-      wLast.append(HTMLprojectDescription.replace("%data%",project.description));
+      $('#projects').append(HTMLprojectStart);
+      var pLast = $('.project-entry:last');
+      pLast.append(HTMLprojectTitle.replace('%data%',project.title));
+      pLast.append(HTMLprojectDates.replace('%data%',project.dates));
+      pLast.append(HTMLprojectDescription.replace('%data%',project.description));
       project.images.forEach(function (image) {
-        wLast.append(HTMLprojectImage.replace("%data%",image));
+        pLast.append(HTMLprojectImage.replace('%data%',image));
         console.log(image);
-      })
-    })
+      });
+    });
   }
-}
+};
 projects.display();
+
+$('#mapDiv').append(googleMap);

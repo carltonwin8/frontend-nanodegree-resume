@@ -11,7 +11,9 @@ This repo contains the project listed as the header above for the
 The final results of the files noted below can be seen
 [here](https://carltonwin8.github.io/frontend-nanodegree-resume).
 
- * [js](js/resumeBuilder.js)
+* [js](js/resumeBuilder.js)
+* [css](css/style.css)
+* [html](index.js)
 
 Every thing below this line is from the parent fork and is preserved as is.
 The requirements are show there.

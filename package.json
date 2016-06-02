@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/carltonwin8/frontend-nanodegree-resume/issues"
   },
-  "homepage": "https://github.com/carltonwin8/frontend-nanodegree-resume#readme"
+  "homepage": "https://github.com/carltonwin8/frontend-nanodegree-resume#readme",
+  "devDependencies": {
+    "browser-sync": "^2.12.10",
+    "gulp": "^3.9.1"
+  }
 }
