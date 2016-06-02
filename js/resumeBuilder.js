@@ -30,6 +30,12 @@ This is empty on purpose! Your code to build the resume will go here.
     bio.skills.forEach(function (skill) {
       $('#skills-h3').append(HTMLskills.replace('%data%',skill));
     });
+    $('#footerContacts').append(HTMLlocation.replace('%data%',bio.contacts.location));
+    $('#footerContacts').append(HTMLmobile.replace('%data%',bio.contacts.mobile));
+    $('#footerContacts').append(HTMLemail.replace('%data%',bio.contacts.email));
+    $('#footerContacts').append(HTMLtwitter.replace('%data%',bio.contacts.twitter));
+    $('#footerContacts').append(HTMLgithub.replace('%data%',bio.contacts.github));
+    $('#footerContacts').append(HTMLblog.replace('%data%',bio.contacts.blog));
   }
 };
 bio.display();
