@@ -18,24 +18,18 @@ This is empty on purpose! Your code to build the resume will go here.
   display: function () {
     $('#header').prepend(HTMLheaderRole.replace('%data%',bio.role));
     $('#header').prepend(HTMLheaderName.replace('%data%',bio.name));
-    $('#topContacts').append(HTMLlocation.replace('%data%',bio.contacts.location));
-    $('#topContacts').append(HTMLmobile.replace('%data%',bio.contacts.mobile));
-    $('#topContacts').append(HTMLemail.replace('%data%',bio.contacts.email));
-    $('#topContacts').append(HTMLtwitter.replace('%data%',bio.contacts.twitter));
-    $('#topContacts').append(HTMLgithub.replace('%data%',bio.contacts.github));
-    $('#topContacts').append(HTMLblog.replace('%data%',bio.contacts.blog));
+    $('#topContacts,#footerContacts').append(HTMLlocation.replace('%data%',bio.contacts.location));
+    $('#topContacts,#footerContacts').append(HTMLmobile.replace('%data%',bio.contacts.mobile));
+    $('#topContacts,#footerContacts').append(HTMLemail.replace('%data%',bio.contacts.email));
+    $('#topContacts,#footerContacts').append(HTMLtwitter.replace('%data%',bio.contacts.twitter));
+    $('#topContacts,#footerContacts').append(HTMLgithub.replace('%data%',bio.contacts.github));
+    $('#topContacts,#footerContacts').append(HTMLblog.replace('%data%',bio.contacts.blog));
     $('#header').append(HTMLbioPic.replace('%data%',bio.biopic));
     $('#header').append(HTMLwelcomeMsg.replace('%data%',bio.welcomeMessage));
     $('#header').append(HTMLskillsStart);
     bio.skills.forEach(function (skill) {
-      $('#skills-h3').append(HTMLskills.replace('%data%',skill));
+      $('#skills').append(HTMLskills.replace('%data%',skill));
     });
-    $('#footerContacts').append(HTMLlocation.replace('%data%',bio.contacts.location));
-    $('#footerContacts').append(HTMLmobile.replace('%data%',bio.contacts.mobile));
-    $('#footerContacts').append(HTMLemail.replace('%data%',bio.contacts.email));
-    $('#footerContacts').append(HTMLtwitter.replace('%data%',bio.contacts.twitter));
-    $('#footerContacts').append(HTMLgithub.replace('%data%',bio.contacts.github));
-    $('#footerContacts').append(HTMLblog.replace('%data%',bio.contacts.blog));
   }
 };
 bio.display();
@@ -63,13 +57,13 @@ var education = {
     {
       title: 'Anvil Building',
       school: 'ACME',
-      dates: '2005-2006',
+      date: '2005-2006',
       url: 'http://acme.com'
     },
     {
       title: 'Crash Course',
       school: 'Hard Knocks',
-      dates: '2007-2008',
+      date: '2007-2008',
       url: 'http://hardknocks.com'
     }
   ],
@@ -78,20 +72,21 @@ var education = {
     education.schools.forEach(function (school) {
       $('#education').append(HTMLschoolStart);
       eLast = $('.education-entry:last');
-      eLast.append(HTMLschoolName.replace('%data%',school.name));
-      eLast.append(HTMLschoolDegree.replace('%data%',school.degree));
+      eLast.append(HTMLschoolName.replace('%data%',school.name) +
+        HTMLschoolDegree.replace('%data%',school.degree));
       eLast.append(HTMLschoolDates.replace('%data%',school.dates));
       eLast.append(HTMLschoolLocation.replace('%data%',school.location));
       school.majors.forEach(function (major) {
         eLast.append(HTMLschoolMajor.replace('%data%',major));
       });
     });
-    eLast = $('.education-entry:last');
-    eLast.append(HTMLonlineClasses);
+    $('#education').append(HTMLonlineClasses);
     education.onlineCourses.forEach(function (onlineCourse) {
-      eLast.append(HTMLonlineTitle.replace('%data%',onlineCourse.title));
-      eLast.append(HTMLonlineSchool.replace('%data%',onlineCourse.school));
-      eLast.append(HTMLonlineDates.replace('%data%',onlineCourse.dates));
+      $('#education').append(HTMLschoolStart);
+      eLast = $('.education-entry:last');
+      eLast.append(HTMLonlineTitle.replace('%data%',onlineCourse.title)
+        + HTMLonlineSchool.replace('%data%',onlineCourse.school));
+      eLast.append(HTMLonlineDates.replace('%data%',onlineCourse.date));
       eLast.append(HTMLonlineURL.replace('%data%',onlineCourse.url));
     });
   }
@@ -119,8 +114,8 @@ var work = {
     work.jobs.forEach(function (work) {
       $('#workExperience').append(HTMLworkStart);
       var wLast = $('.work-entry:last');
-      wLast.append(HTMLworkEmployer.replace('%data%',work.employer));
-      wLast.append(HTMLworkTitle.replace('%data%',work.title));
+      wLast.append(HTMLworkEmployer.replace('%data%',work.employer) +
+        HTMLworkTitle.replace('%data%',work.title));
       wLast.append(HTMLworkDates.replace('%data%',work.dates));
       wLast.append(HTMLworkLocation.replace('%data%',work.location));
       wLast.append(HTMLworkDescription.replace('%data%',work.description));
