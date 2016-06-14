@@ -13,7 +13,7 @@ The final results of the files noted below can be seen
 
 * [js](js/resumeBuilder.js)
 * [css](css/style.css)
-* [html](index.js)
+* [html](index.html)
 
 Every thing below this line is from the parent fork and is preserved as is.
 The requirements are show there.
